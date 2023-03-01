@@ -162,6 +162,34 @@ img {
   letter-spacing: 0.02em;
   color: var(--title-text-color);
 }
+
+.header-link,
+.contacts-email,
+.contacts-phone {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  color 250ms cubic-bezier(0.4, 0, 0.2, 1);  
+}
+
+/* Синє підкреслення */
+.header-item {
+  position: relative;
+}
+
+
+
+.header-link.current::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  
+
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
 /* Тут костилі */
  .contacts-email,
  .contacts-phone {
@@ -190,6 +218,9 @@ img {
 
 .icon-envelope {
   fill: #757575;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  
 }
 
 .contacts-email:hover .icon-envelope,
@@ -203,6 +234,8 @@ img {
 
 .icon-smartphone {
   fill: #757575;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
 }
 
 .contacts-phone:hover .icon-smartphone,
@@ -219,6 +252,7 @@ img {
 .footer {
   background-color: var(--footer-color);
 }
+
 /* Герой \ hero */
 .hero{
   height: 600px;
@@ -268,6 +302,9 @@ img {
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.06em;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn.primary {
@@ -287,6 +324,38 @@ img {
   border: 2px, solid, var(--accent-color);
 }
 
+/* Модальне вікно */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+  min-width: 528px;
+  min-height: 581px;
+  
+  background-color: #ffffff;
+}
+
+.close-modal {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
 
 /* Особливості \ features */
 .feature-list {
@@ -342,12 +411,33 @@ img {
 }
 
 .work-item {
+  position: relative;
  width: 370px;
  margin-right: 30px;
  }
 
 .work-item:last-child {
   margin-right: 0;
+}
+
+.label{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 370px;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
+
+  padding-top: 27px;
+  padding-bottom: 27px;
+  
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: #FFFFFF;
 }
 
 
@@ -414,13 +504,17 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ 
 }
 
 .team-soc-icon {
   width: 20px;
   height: 20px;
   fill: #AFB1B8;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-soc-link:hover, .team-soc-link:focus {
@@ -448,6 +542,8 @@ img {
   border: 1px solid #AFB1B8;
   border-radius: 4px;
   justify-content: center;  
+
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover, .client-link:focus {
@@ -459,6 +555,8 @@ img {
   height: 60px;
   align-self: center;
   fill: #AFB1B8;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover .icon-client, 
@@ -485,6 +583,8 @@ img {
 .address-text {
   display: inline-block;
   color: #ffffff;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-text:hover,
@@ -497,6 +597,8 @@ img {
   color: rgba(255, 255, 255, 0.6);
 
   margin-top: 9px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer .logo {
@@ -549,6 +651,8 @@ display: block;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
    
 }
 
@@ -606,6 +710,10 @@ display: block;
   line-height: 1.62;
   text-align: center;
   color: var(--title-text-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -643,6 +751,10 @@ display: block;
   margin: 15px;
 }
 
+.card {
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1)
+}
+
 .card-link:hover .card {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
   0px 4px 4px rgba(0, 0, 0, 0.06), 
@@ -675,4 +787,34 @@ display: block;
   font-size: 16px;
   line-height: 1.88;
   color: var(--primary-text-color);
+}
+
+/* Текст на картку при ховері */
+.card-thumb {
+  position: relative;
+}
+
+.card-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  
+  background: rgba(33, 150, 243, 0.9);
+  padding: 63px 24px;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-link:hover .card-overlay,
+.card-link:focus .card-overlay {
+  opacity: 1;
 }
